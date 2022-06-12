@@ -20,6 +20,10 @@ public class MyLimiterServiceController {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * 调用成功后会返回两个数，一个是是否成功标志，0代表限流，1代表未限流，还有一个是令牌桶中剩余的令牌数
+     * @return
+     */
     @GetMapping("/hello")
     public List<Long> userToken() {
         // 设置lua脚本的ARGV的值
